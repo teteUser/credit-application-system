@@ -1,6 +1,6 @@
 package me.dio.credit.application.system.entity
 
-import org.hibernate.validator.constraints.br.CPF
+import java.math.BigDecimal
 import javax.persistence.*
 
 @Entity
@@ -12,9 +12,11 @@ data class Customer(
         @Column(nullable = false)
         var lastName: String = "",
 
-        @CPF
         @Column(nullable = false, unique = true)
-        var cpf: String,
+        val cpf: String = "",
+
+        @Column(nullable = false)
+        var income: BigDecimal = BigDecimal.ZERO,
 
         @Column(nullable = false, unique = true)
         var email: String = "",
