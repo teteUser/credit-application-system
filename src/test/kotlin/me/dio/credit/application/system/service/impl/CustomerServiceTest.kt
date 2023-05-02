@@ -22,8 +22,11 @@ import java.util.*
 @ExtendWith(MockKExtension::class)
 internal class CustomerServiceTest {
 
-    @MockK lateinit var customerRepository: CustomerRepository
-    @InjectMockKs lateinit var customerService: CustomerService
+    @MockK
+    lateinit var customerRepository: CustomerRepository
+
+    @InjectMockKs
+    lateinit var customerService: CustomerService
 
     @Test
     fun shouldSaveCustomer() {
@@ -54,7 +57,7 @@ internal class CustomerServiceTest {
     }
 
     @Test
-    fun shouldThrowExceptionWhenCustomerIdIsNotFound(){
+    fun shouldThrowExceptionWhenCustomerIdIsNotFound() {
         //given
         val fakeId: Long = Random().nextLong()
         every { customerRepository.findById(fakeId) } returns Optional.empty()
@@ -89,8 +92,6 @@ internal class CustomerServiceTest {
         every { customerRepository.findAll() } returns listOf(fakeCustomer1, fakeCustomer2)
         val foundCustomers: List<Customer> = customerService.findAll()
         //then
-        /*verify(exactly = 1) { customerRepository.save(fakeCustomer1) }
-        verify(exactly = 1) { customerRepository.save(fakeCustomer2) }*/
         verify(exactly = 1) { customerRepository.findAll() }
         Assertions.assertThat(foundCustomers).isNotEmpty
         Assertions.assertThat(foundCustomers).hasSize(2)

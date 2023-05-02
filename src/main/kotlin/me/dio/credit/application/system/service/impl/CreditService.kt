@@ -11,7 +11,7 @@ import java.util.*
 @Service
 class CreditService(
         private val creditRepository: CreditRepository,
-        private val customerService: CustomerService): ICreditService {
+        private val customerService: CustomerService) : ICreditService {
 
     override fun save(credit: Credit): Credit {
         this.validDayFirstInstallment(credit.dayFirstInstallment)
@@ -24,8 +24,9 @@ class CreditService(
     override fun findAllByCustomer(customerId: Long): List<Credit> = this.creditRepository.findAllByCustomerId(customerId)
 
     override fun findByCreditCode(customerId: Long, creditCode: UUID): Credit {
-        val credit: Credit = (this.creditRepository.findByCreditCode(creditCode) ?: throw BusinessException("Credit Code $creditCode not found"))
-    return if (credit.customer?.id == customerId) credit else throw BusinessException("Contact admin")
+        val credit: Credit = (this.creditRepository.findByCreditCode(creditCode)
+                ?: throw BusinessException("Credit Code $creditCode not found"))
+        return if (credit.customer?.id == customerId) credit else throw BusinessException("Contact admin")
     }
 
     private fun validDayFirstInstallment(dayFirstInstallment: LocalDate): Boolean {
