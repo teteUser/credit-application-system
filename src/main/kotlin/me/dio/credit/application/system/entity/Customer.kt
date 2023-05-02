@@ -1,7 +1,7 @@
 package me.dio.credit.application.system.entity
 
+import jakarta.persistence.*
 import java.math.BigDecimal
-import javax.persistence.*
 
 @Entity
 data class Customer(

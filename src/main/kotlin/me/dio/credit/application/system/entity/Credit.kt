@@ -1,10 +1,10 @@
 package me.dio.credit.application.system.entity
 
+import jakarta.persistence.*
 import me.dio.credit.application.system.enums.Status
 import java.math.BigDecimal
 import java.time.LocalDate
 import java.util.*
-import javax.persistence.*
 
 @Entity
 data class Credit(

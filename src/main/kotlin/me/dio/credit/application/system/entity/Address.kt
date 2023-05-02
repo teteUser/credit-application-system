@@ -1,7 +1,7 @@
 package me.dio.credit.application.system.entity
 
-import javax.persistence.Column
-import javax.persistence.Embeddable
+import jakarta.persistence.Column
+import jakarta.persistence.Embeddable
 
 @Embeddable
 data class Address(

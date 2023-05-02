@@ -1,16 +1,15 @@
 package me.dio.credit.application.system.controller
 
+import jakarta.validation.Valid
 import me.dio.credit.application.system.dto.CustomerDTO
 import me.dio.credit.application.system.dto.CustomerUpdateDTO
 import me.dio.credit.application.system.dto.CustomerView
 import me.dio.credit.application.system.entity.Customer
 import me.dio.credit.application.system.service.impl.CustomerService
-import org.apache.catalina.connector.Response
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 import java.util.stream.Collectors
-import javax.validation.Valid
 
 @RestController
 @RequestMapping("/api/customers")

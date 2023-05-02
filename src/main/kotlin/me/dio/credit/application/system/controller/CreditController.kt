@@ -1,5 +1,6 @@
 package me.dio.credit.application.system.controller
 
+import jakarta.validation.Valid
 import me.dio.credit.application.system.dto.CreditDTO
 import me.dio.credit.application.system.dto.CreditView
 import me.dio.credit.application.system.dto.CreditViewList
@@ -10,7 +11,6 @@ import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 import java.util.*
 import java.util.stream.Collectors
-import javax.validation.Valid
 
 @RestController
 @RequestMapping("/api/credits")

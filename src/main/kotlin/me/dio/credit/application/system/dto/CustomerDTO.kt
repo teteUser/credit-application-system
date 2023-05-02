@@ -4,9 +4,7 @@ import me.dio.credit.application.system.entity.Address
 import me.dio.credit.application.system.entity.Customer
 import org.hibernate.validator.constraints.br.CPF
 import java.math.BigDecimal
-import javax.validation.constraints.Email
-import javax.validation.constraints.NotEmpty
-import javax.validation.constraints.NotNull
+import jakarta.validation.constraints.*
 
 data class CustomerDTO(
         @field:NotEmpty(message = "Please inform the first name") val firstName: String,
